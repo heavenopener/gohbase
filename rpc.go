@@ -595,6 +595,10 @@ func sleepAndIncreaseBackoff(ctx context.Context, backoff time.Duration) (time.D
 	case <-ctx.Done():
 		return 0, ctx.Err()
 	}
+	// add by yz
+	if backoff > maxBackoff {
+		return backoff, errors.New("reach max backoff")
+	}
 	// TODO: Revisit how we back off here.
 	if backoff < 5000*time.Millisecond {
 		return backoff * 2, nil
