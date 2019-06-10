@@ -21,10 +21,10 @@ import (
 	atest "github.com/aristanetworks/goarista/test"
 	"github.com/golang/mock/gomock"
 	"github.com/golang/protobuf/proto"
-	"github.com/tsuna/gohbase/hrpc"
-	"github.com/tsuna/gohbase/pb"
-	"github.com/tsuna/gohbase/test"
-	"github.com/tsuna/gohbase/test/mock"
+	"github.com/heavenopener/gohbase/hrpc"
+	"github.com/heavenopener/gohbase/pb"
+	"github.com/heavenopener/gohbase/test"
+	"github.com/heavenopener/gohbase/test/mock"
 )
 
 func TestErrors(t *testing.T) {

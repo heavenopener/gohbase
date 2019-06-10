@@ -11,8 +11,8 @@ import (
 	"sync"
 
 	"github.com/cznic/b"
+	"github.com/heavenopener/gohbase/hrpc"
 	log "github.com/sirupsen/logrus"
-	"github.com/tsuna/gohbase/hrpc"
 )
 
 // clientRegionCache is client -> region cache. Used to quickly

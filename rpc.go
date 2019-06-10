@@ -15,10 +15,10 @@ import (
 	"time"
 
 	"github.com/golang/protobuf/proto"
+	"github.com/heavenopener/gohbase/hrpc"
+	"github.com/heavenopener/gohbase/region"
+	"github.com/heavenopener/gohbase/zk"
 	log "github.com/sirupsen/logrus"
-	"github.com/tsuna/gohbase/hrpc"
-	"github.com/tsuna/gohbase/region"
-	"github.com/tsuna/gohbase/zk"
 )
 
 // Constants

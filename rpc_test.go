@@ -23,14 +23,14 @@ import (
 	atest "github.com/aristanetworks/goarista/test"
 	"github.com/cznic/b"
 	"github.com/golang/mock/gomock"
-	"github.com/tsuna/gohbase/hrpc"
-	"github.com/tsuna/gohbase/pb"
-	"github.com/tsuna/gohbase/region"
-	"github.com/tsuna/gohbase/test"
-	"github.com/tsuna/gohbase/test/mock"
-	mockRegion "github.com/tsuna/gohbase/test/mock/region"
-	mockZk "github.com/tsuna/gohbase/test/mock/zk"
-	"github.com/tsuna/gohbase/zk"
+	"github.com/heavenopener/gohbase/hrpc"
+	"github.com/heavenopener/gohbase/pb"
+	"github.com/heavenopener/gohbase/region"
+	"github.com/heavenopener/gohbase/test"
+	"github.com/heavenopener/gohbase/test/mock"
+	mockRegion "github.com/heavenopener/gohbase/test/mock/region"
+	mockZk "github.com/heavenopener/gohbase/test/mock/zk"
+	"github.com/heavenopener/gohbase/zk"
 )
 
 func newMockClient(zkClient zk.Client) *client {

@@ -12,8 +12,8 @@ import (
 	"sync"
 
 	"github.com/golang/protobuf/proto"
-	"github.com/tsuna/gohbase/hrpc"
-	"github.com/tsuna/gohbase/pb"
+	"github.com/heavenopener/gohbase/hrpc"
+	"github.com/heavenopener/gohbase/pb"
 )
 
 var multiPool = sync.Pool{

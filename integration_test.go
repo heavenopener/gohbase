@@ -25,11 +25,11 @@ import (
 
 	atest "github.com/aristanetworks/goarista/test"
 	"github.com/golang/protobuf/proto"
+	"github.com/heavenopener/gohbase"
+	"github.com/heavenopener/gohbase/filter"
+	"github.com/heavenopener/gohbase/hrpc"
+	"github.com/heavenopener/gohbase/pb"
 	log "github.com/sirupsen/logrus"
-	"github.com/tsuna/gohbase"
-	"github.com/tsuna/gohbase/filter"
-	"github.com/tsuna/gohbase/hrpc"
-	"github.com/tsuna/gohbase/pb"
 )
 
 var host = flag.String("host", "localhost", "The location where HBase is running")
