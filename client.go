@@ -33,6 +33,8 @@ const (
 	metaBurst = 10
 	// metaLimit is rate at which to throttle requests to hbase:meta table.
 	metaLimit = rate.Limit(100)
+	// add by yz
+	maxBackoff = 4 * time.Second
 )
 
 // Client a regular HBase client
