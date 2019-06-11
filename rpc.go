@@ -260,12 +260,12 @@ func (c *client) lookupRegion(ctx context.Context,
 			return reg, addr, nil
 		}
 
-		log.WithFields(log.Fields{
-			"table":   strconv.Quote(string(table)),
-			"key":     strconv.Quote(string(key)),
-			"backoff": backoff,
-			"err":     err,
-		}).Error("failed looking up region")
+		//log.WithFields(log.Fields{
+		//	"table":   strconv.Quote(string(table)),
+		//	"key":     strconv.Quote(string(key)),
+		//	"backoff": backoff,
+		//	"err":     err,
+		//}).Error("failed looking up region")
 
 		// This will be hit if there was an error locating the region
 		backoff, err = sleepAndIncreaseBackoff(ctx, backoff)
@@ -528,11 +528,11 @@ func (c *client) establishRegion(reg hrpc.RegionInfo, addr string) {
 				// client has been closed
 				return
 			} else if err != nil {
-				log.WithFields(log.Fields{
-					"region":  originalReg.String(),
-					"err":     err,
-					"backoff": backoff,
-				}).Error("unknown error occured when looking up region")
+				//log.WithFields(log.Fields{
+				//	"region":  originalReg.String(),
+				//	"err":     err,
+				//	"backoff": backoff,
+				//}).Error("unknown error occured when looking up region")
 				return
 			}
 			if !bytes.Equal(reg.Name(), originalReg.Name()) {
