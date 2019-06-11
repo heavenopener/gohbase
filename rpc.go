@@ -42,6 +42,9 @@ var (
 	// ErrClientClosed is returned when the gohbase client has been closed
 	ErrClientClosed = errors.New("client is closed")
 
+	// ErrTimeout
+	ErrTimeout = errors.New("connect timeout")
+
 	// errMetaLookupThrottled is returned when a lookup for the rpc's region
 	// has been throttled.
 	errMetaLookupThrottled = errors.New("lookup to hbase:meta has been throttled")
