@@ -81,7 +81,8 @@ func (c *client) LocateResource(resource ResourceName) (string, error) {
 		return "", fmt.Errorf("failed to read the %s znode: %s", resource, err)
 	}
 	if len(buf) == 0 {
-		log.Fatalf("%s was empty!", resource)
+		log.Errorf("%s was empty!", resource)
+		return "", fmt.Errorf("%s was empty!", resource)
 	} else if buf[0] != 0xFF {
 		return "", fmt.Errorf("the first byte of %s was 0x%x, not 0xFF", resource, buf[0])
 	}

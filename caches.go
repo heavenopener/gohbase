@@ -119,7 +119,7 @@ func (krc *keyRegionCache) get(key []byte) ([]byte, hrpc.RegionInfo) {
 	enum, ok := krc.regions.Seek(key)
 	if ok {
 		krc.m.RUnlock()
-		log.Fatalf("WTF: got exact match for region search key %q", key)
+		log.Errorf("WTF: got exact match for region search key %q", key)
 		return nil, nil
 	}
 	k, v, err := enum.Prev()
@@ -157,7 +157,8 @@ func (krc *keyRegionCache) getOverlaps(reg hrpc.RegionInfo) []hrpc.RegionInfo {
 	key := createRegionSearchKey(fullyQualifiedTable(reg), reg.StartKey())
 	enum, ok := krc.regions.Seek(key)
 	if ok {
-		log.Fatalf("WTF: found a region with exact name as the search key %q", key)
+		log.Errorf("WTF: found a region with exact name as the search key %q", key)
+		return overlaps
 	}
 
 	// case 1: landed before the first region in cache
@@ -182,8 +183,9 @@ func (krc *keyRegionCache) getOverlaps(reg hrpc.RegionInfo) []hrpc.RegionInfo {
 		enum.Close()
 		enum, err = krc.regions.SeekFirst()
 		if err != nil {
-			log.Fatalf(
+			log.Errorf(
 				"error seeking first region when getting  overlaps for region %v: %v", reg, err)
+			return overlaps
 		}
 	}
 

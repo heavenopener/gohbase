@@ -519,7 +519,8 @@ func (c *client) establishRegion(reg hrpc.RegionInfo, addr string) {
 					"region":  originalReg.String(),
 					"err":     err,
 					"backoff": backoff,
-				}).Fatal("unknown error occured when looking up region")
+				}).Error("unknown error occured when looking up region")
+				return
 			}
 			if !bytes.Equal(reg.Name(), originalReg.Name()) {
 				// put new region and remove overlapping ones.
