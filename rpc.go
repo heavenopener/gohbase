@@ -75,6 +75,14 @@ func (c *client) getRegionForRpc(rpc hrpc.Call) (hrpc.RegionInfo, error) {
 	return nil, ErrCannotFindRegion
 }
 
+func timeAfter(d time.Duration) chan int {
+	q := make(chan int, 1)
+	time.AfterFunc(d, func() {
+		q <- 1
+	})
+	return q
+}
+
 func (c *client) SendRPC(rpc hrpc.Call) (proto.Message, error) {
 	reg, err := c.getRegionForRpc(rpc)
 	if err != nil {
@@ -99,6 +107,8 @@ func (c *client) SendRPC(rpc hrpc.Call) (proto.Message, error) {
 					return nil, rpc.Context().Err()
 				case <-c.done:
 					return nil, ErrClientClosed
+				case <-timeAfter(maxBackoff):
+					return nil, ErrTimeout
 				case <-ch:
 				}
 			}
